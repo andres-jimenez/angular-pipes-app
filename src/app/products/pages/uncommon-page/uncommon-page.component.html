@@ -1,0 +1,63 @@
+<div class="mt-3">
+  <p-panel header="Uncommon Pipes" class="pt-2">
+    <p>
+      Angular built-in <strong>pipes</strong>, usually in
+      <strong>'common'</strong> module
+    </p>
+  </p-panel>
+</div>
+
+<div class="grid mt-2">
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nSelect Pipe" [toggleable]="true"
+      ><p>
+        Saludos {{ name }}, es un placer
+        {{ gender | i18nSelect : invitationMap }} a nuestro evento
+      </p>
+      <p-button (click)="changeClient()" label="Cambiar persona"></p-button
+    ></p-fieldset>
+    >
+  </div>
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+      <p>
+        Actualmente
+        {{ clients.length | i18nPlural : clientsMap }}
+      </p>
+      <p-button (click)="deleteClient()" label="Borrar cliente"></p-button>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Slice Pipe" [toggleable]="true">
+      <b>Original</b>
+      <pre>{{ clients }}</pre>
+      <b>Result (Slice : 0 : 2)</b>
+      <pre>{{ clients | slice : 0 : 2 }}</pre>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="JsonPipe Pipe" [toggleable]="true">
+      <pre>{{ person | json }}</pre>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+      <ul>
+        <li *ngFor="let property of person | keyvalue">
+          <b>{{ property.key | titlecase }}</b
+          >: {{ property.value }}
+        </li>
+      </ul>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Async Pipe" [toggleable]="true">
+      <pre>
+        {{ myObservableTimer | async }}
+      </pre>
+      <pre>
+        {{ promiseValue | async }}
+      </pre>
+    </p-fieldset>
+  </div>
+</div>
